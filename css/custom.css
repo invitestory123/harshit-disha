@@ -1,1 +1,550 @@
-/* Custom styles. Original form-submit handler removed (RSVP form no longer present). */
+/* ==========================================================================
+   WAX SEAL ROYALE — HARSHIT & DISHA CUSTOM STYLES
+   Exact OG Template Aesthetic with Responsive Layout Fixes
+   ========================================================================== */
+
+/* ── Typography & Global Polish ── */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Imperial+Script&family=Ovo&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --royale-gold: #a67d2b;
+  --royale-gold-dark: #8c6428;
+  --royale-gold-light: #c9a96e;
+  --royale-parchment: #F9F0E0;
+  --royale-parchment-card: #fdf8ee;
+  --royale-text: #6a5140;
+  --royale-text-muted: #846f61;
+  --royale-burgundy: #5A0F1B;
+}
+
+/* Ensure smooth font rendering */
+body {
+  background-color: var(--royale-parchment) !important;
+  font-feature-settings: "liga" 1, "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── HERO OVERRIDES: Fix overlapping monogram, mantra, and names ── */
+#rec2487446043 .t396__artboard {
+  overflow: visible !important;
+}
+
+/* Ensure Names & Wedding Day are ALWAYS visible on all screens */
+#rec2487446043 .tn-elem[data-elem-id="1763402147625"],
+#rec2487446043 .tn-elem[data-elem-id="176340398328864790"],
+#rec2487446043 .tn-elem[data-elem-id="176340401720454780"],
+#rec2487446043 .tn-elem[data-elem-id="176340390975774690"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* On mobile, center the hero couple names properly */
+@media screen and (max-width: 640px) {
+  #rec2487446043 .tn-elem[data-elem-id="1763402147625"] {
+    left: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1763402147625"] .tn-atom {
+    font-size: 46px !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="176340398328864790"] {
+    left: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="176340401720454780"] {
+    left: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="176340390975774690"] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* Monogram Element in Hero Parchment */
+#rec2487446043 .tn-elem[data-elem-id="1782312134224"] {
+  z-index: 5 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#rec2487446043 .tn-elem[data-elem-id="1782312134224"] .tn-atom,
+#rec2487446043 .tn-elem[data-elem-id="1782312134224"] img {
+  width: 95px !important;
+  height: 95px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border-radius: 50% !important;
+  filter: drop-shadow(0 2px 8px rgba(166, 125, 43, 0.25)) !important;
+}
+
+/* Auspicious Invocation: ॥ श्री गणेशाय नमः ॥ & Two Souls */
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000003"] {
+  z-index: 4 !important;
+  top: 920px !important;
+  text-align: center !important;
+  width: 90% !important;
+  max-width: 520px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000003"] .tn-atom {
+  font-family: 'Cinzel', serif !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+}
+
+/* Formal Family Invitation Note */
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000005"] {
+  z-index: 4 !important;
+  top: 1040px !important;
+  width: 92% !important;
+  max-width: 560px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  height: auto !important;
+}
+
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000005"] .tn-atom {
+  font-family: 'Cinzel', serif !important;
+  color: var(--royale-text) !important;
+  font-size: 13.5px !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+/* Hide Islamic Center building sketch */
+#rec2487446153 .tn-elem[data-elem-id="1782312310182000001"],
+#rec2487446153 img[src*="ChatGPT_Image_May_25.png"] {
+  display: none !important;
+}
+
+/* Fix overlapping location text */
+#rec2487446153 .tn-elem[data-elem-id="1772804808869"] {
+  top: 140px !important;
+  width: 90% !important;
+  max-width: 560px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+}
+
+#rec2487446153 .tn-elem[data-elem-id="1772813480591000001"] {
+  top: 195px !important;
+  width: 90% !important;
+  max-width: 560px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+}
+
+/* ==========================================================================
+   SCHEDULE OF EVENTS — AUTHENTIC LUXURY TIMELINE (MATCHING OG TEMPLATE SCREENSHOT)
+   ========================================================================== */
+.og-sched-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.og-sched-container {
+  position: relative;
+  background: #fcf8ee;
+  border: 1px solid rgba(166, 125, 43, 0.22);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(140, 100, 60, 0.08);
+  padding: 50px 24px 60px;
+  margin: 20px auto 40px;
+}
+
+/* Torn Deckled Paper Edges */
+.og-sched-deckle-top {
+  width: 100%;
+  display: block;
+  margin-bottom: -4px;
+}
+
+.og-sched-deckle-bottom {
+  width: 100%;
+  display: block;
+  margin-top: -4px;
+}
+
+/* Header */
+.og-sched-header {
+  text-align: center;
+  margin-bottom: 44px;
+  position: relative;
+}
+
+.og-sched-title {
+  font-family: 'Imperial Script', cursive !important;
+  font-size: 54px !important;
+  font-weight: 400 !important;
+  color: var(--royale-gold) !important;
+  margin: 0 !important;
+  line-height: 1.1 !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.og-sched-flourish {
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.75;
+  margin: 0 12px;
+}
+
+/* Vertical Timeline Stem */
+.og-sched-timeline {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.og-sched-stem {
+  position: absolute;
+  top: 15px;
+  bottom: 25px;
+  left: 50%;
+  width: 1.5px;
+  background: linear-gradient(180deg, 
+    rgba(166, 125, 43, 0.2) 0%, 
+    rgba(166, 125, 43, 0.5) 15%, 
+    rgba(166, 125, 43, 0.5) 85%, 
+    rgba(166, 125, 43, 0.2) 100%);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Timeline Row */
+.og-sched-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+  margin-bottom: 24px;
+  z-index: 2;
+}
+
+.og-sched-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Left Column: Time & Date */
+.og-col-time {
+  flex: 1 1 45%;
+  text-align: right;
+  padding-right: 28px;
+  box-sizing: border-box;
+}
+
+.og-date-pill {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--royale-gold-dark);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.og-time-val {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--royale-gold);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+/* Center Node / Rose */
+.og-col-node {
+  flex: 0 0 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.og-node-diamond {
+  width: 10px;
+  height: 10px;
+  background-color: var(--royale-parchment-card);
+  border: 2px solid var(--royale-gold);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+}
+
+.og-node-rose {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(166, 125, 43, 0.35));
+  animation: ogRoseFloat 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes ogRoseFloat {
+  0%   { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.08) translateY(-2px); }
+}
+
+/* Right Column: Ceremony Details */
+.og-col-info {
+  flex: 1 1 45%;
+  text-align: left;
+  padding-left: 28px;
+  box-sizing: border-box;
+}
+
+.og-event-title {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--royale-gold-dark);
+  margin: 0 0 4px 0;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+.og-row-highlight .og-event-title {
+  color: #8a1f2d;
+  font-size: 20px;
+}
+
+.og-event-meta {
+  font-family: 'Ovo', serif;
+  font-size: 13px;
+  color: var(--royale-text-muted);
+  line-height: 1.45;
+}
+
+.og-meta-pill {
+  display: inline-block;
+  background: rgba(166, 125, 43, 0.08);
+  border: 1px solid rgba(166, 125, 43, 0.2);
+  border-radius: 12px;
+  padding: 1px 8px;
+  font-size: 11px;
+  color: var(--royale-gold-dark);
+  margin-top: 3px;
+  font-style: italic;
+}
+
+/* Mobile Responsiveness for Timeline */
+@media screen and (max-width: 600px) {
+  .og-sched-container {
+    padding: 36px 14px 44px;
+  }
+  .og-sched-title {
+    font-size: 42px !important;
+  }
+  .og-sched-flourish {
+    height: 18px;
+    margin: 0 6px;
+  }
+  .og-col-time {
+    padding-right: 14px;
+  }
+  .og-col-info {
+    padding-left: 14px;
+  }
+  .og-time-val {
+    font-size: 18px;
+  }
+  .og-date-pill {
+    font-size: 9px;
+  }
+  .og-event-title {
+    font-size: 15px;
+  }
+  .og-row-highlight .og-event-title {
+    font-size: 16px;
+  }
+  .og-event-meta {
+    font-size: 12px;
+  }
+}
+
+/* ── DETAILS & BLESSINGS CARDS (ROYAL PARCHMENT STYLE) ── */
+.og-details-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  margin: 30px auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.og-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.og-detail-card {
+  background: #fdf8ee;
+  border: 1px solid rgba(166, 125, 43, 0.25);
+  border-radius: 4px;
+  padding: 28px 22px;
+  box-shadow: 0 6px 20px rgba(140, 100, 60, 0.06);
+  text-align: center;
+  position: relative;
+}
+
+.og-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--royale-gold-dark);
+  margin: 0 0 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.og-card-title::before,
+.og-card-title::after {
+  content: "";
+  height: 1px;
+  width: 28px;
+  background: rgba(166, 125, 43, 0.35);
+}
+
+.og-card-body {
+  font-family: 'Ovo', serif;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--royale-text);
+}
+
+.og-card-body strong {
+  color: var(--royale-gold-dark);
+}
+
+.og-phone-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 14px;
+  background: var(--royale-burgundy);
+  color: #ffffff !important;
+  text-decoration: none;
+  border-radius: 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  transition: all 0.2s ease;
+}
+
+.og-phone-btn:hover {
+  background: #731323;
+  transform: translateY(-1px);
+}
+
+/* ── ACTION BUTTONS ── */
+.og-action-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  margin: 6px;
+  background: var(--royale-gold);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(166, 125, 43, 0.25);
+  transition: all 0.25s ease;
+}
+
+.og-action-btn:hover {
+  background: var(--royale-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(166, 125, 43, 0.35);
+}
+
+.og-action-btn-outline {
+  background: transparent;
+  color: var(--royale-gold-dark) !important;
+  border: 1px solid var(--royale-gold);
+}
+
+.og-action-btn-outline:hover {
+  background: var(--royale-gold);
+  color: #ffffff !important;
+}
+
+
+/* ── Fine-tuned Hero Typography Overrides ── */
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000003"] {
+  top: 900px !important;
+  width: 90% !important;
+  max-width: 480px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+}
+
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000003"] .tn-atom {
+  font-family: 'Cinzel', serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  color: var(--royale-gold) !important;
+  line-height: 1.4 !important;
+  text-transform: none !important;
+}
+
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000005"] {
+  top: 990px !important;
+  width: 92% !important;
+  max-width: 540px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  height: auto !important;
+  text-align: center !important;
+}
+
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000005"] .tn-atom {
+  font-family: 'Cinzel', serif !important;
+  font-size: 12.5px !important;
+  color: var(--royale-text) !important;
+  line-height: 1.65 !important;
+  white-space: normal !important;
+}
+
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000005"] strong {
+  color: var(--royale-gold-dark) !important;
+  font-size: 14px !important;
+}
+
+/* Hide redundant floating location text above the card */
+#rec2487446153 .tn-elem[data-elem-id="1772804808869"],
+#rec2487446153 .tn-elem[data-elem-id="1772813480591000001"] {
+  display: none !important;
+}

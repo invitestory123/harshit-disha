@@ -13,7 +13,7 @@ window.WEDDING_DATA = {
     groomParents: "Mrs. Sandhya Gupta & Mr. Hariom Gupta",
     brideGrandParents: "Smt. Pushplata Varshney & Shri Mahesh Chand Varshney",
     brideParents: "Mrs. Kumkum Varshney & Mr. Lokesh Varshney",
-    subtitle: "॥ श्री गणेशाय नमः ॥<br />Two Souls, One Destiny, Blessed by the Divine",
+    subtitle: "॥ श्री गणेशाय नमः ॥<br /><span style='font-size:26px; font-family:\"Imperial Script\", cursive; color:#a07b33; display:block; margin-top:4px; font-weight:400; text-transform:none;'>Two Souls, One Destiny &bull; Blessed by the Divine</span>",
     hashtag: "#HarshitWedsDisha",
   },
 
@@ -21,7 +21,7 @@ window.WEDDING_DATA = {
     dateLabel: "26.11.26",
     longDate: "Thursday, 26 November 2026",
     dateISO: "2026-11-26T11:00:00+05:30",
-    invitationNote: "With the divine grace of God and blessings of our elders,<br /><strong>Mrs. Sandhya Gupta & Mr. Hariom Gupta</strong><br />cordially invite you to celebrate the joyous wedding ceremony of their son<br /><span class=\"inv-couple-names\"><span class=\"inv-c-name\">Harshit</span><span class=\"inv-c-amp\">&amp;</span><span class=\"inv-c-name\">Disha</span></span>",
+    invitationNote: "With the divine grace of God &amp; blessings of our elders,<br /><strong style='font-size:14px; color:#8c6428; display:block; margin:3px 0;'>Mrs. Sandhya Gupta &amp; Mr. Hariom Gupta</strong>cordially invite you to celebrate the joyous wedding ceremonies of their son<br /><span style='font-family:Cinzel, serif; font-size:19px; font-weight:700; color:#a67d2b; display:block; margin:5px 0;'>Harshit &amp; Disha</span><div style='font-size:11.5px; color:#846f61; line-height:1.55; margin-top:5px;'>Grand S/o Smt. Late Ramvati Devi &amp; Late Shri Shankar Lal Gupta<br />Grand D/o Smt. Pushplata Varshney &amp; Shri Mahesh Chand Varshney<br />D/o Mrs. Kumkum Varshney &amp; Mr. Lokesh Varshney</div>",
   },
 
   family: {
@@ -99,7 +99,7 @@ window.WEDDING_DATA = {
       date: "26 November 2026",
       day: "Thursday",
       time: "11:00 AM",
-      venue: "",
+      venue: "Grand Procession",
       dressCode: "Timeless Traditionals",
       badge: "Barat",
     },
@@ -110,7 +110,7 @@ window.WEDDING_DATA = {
       day: "Thursday",
       time: "12:00 PM onwards",
       venue: "Kosi Deck",
-      dressCode: "",
+      dressCode: "Sacred Vedic Nuptials",
       badge: "Wedding",
     },
     {
@@ -151,18 +151,9 @@ window.WEDDING_DATA = {
       day: "Tuesday",
       time: "10:00 AM",
       venue: "",
-      dressCode: "",
+      dressCode: "With blessings, love & memories",
       badge: "Vidai",
     },
-  ],
-
-  // Standard 5-row schedule for backwards compatibility
-  schedule: [
-    { title: "Haldi Hungama", time: "25 Nov · 11:00 AM" },
-    { title: "Mastani Shaam", time: "25 Nov · 5:00 PM" },
-    { title: "Jashan - e - Barat", time: "26 Nov · 11:00 AM" },
-    { title: "Vivah Sankalp & Prem Mala", time: "26 Nov · 12:00 PM" },
-    { title: "Gala Celebration", time: "26/30 Nov · 7:30 PM" },
   ],
 
   venue: {
