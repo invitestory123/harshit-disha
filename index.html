@@ -254,337 +254,153 @@ Your browser does not support the video tag.
 function tick() {var now=new Date();var dist=eventDate - now;if(dist<0) {document.getElementById('countdownContainer').innerHTML='See you there!';return;}
 var d=String(Math.floor(dist/86400000));var h=String(Math.floor((dist%86400000)/3600000)).padStart(2,'0');var m=String(Math.floor((dist%3600000)/60000)).padStart(2,'0');var s=String(Math.floor((dist%60000)/1000)).padStart(2,'0');if(d!==prev.days) {flip(elDays,d);prev.days=d;};if(h!==prev.hours) {flip(elHours,h);prev.hours=h;};if(m!==prev.minutes) {flip(elMins,m);prev.minutes=m;};if(s!==prev.seconds) {flip(elSecs,s);prev.seconds=s;}}
 tick();setInterval(tick,1000);function doReveal() {if(revealed) return;revealed=true;document.querySelectorAll('.number').forEach(function(el) {el.classList.add('revealed');});document.querySelectorAll('.label').forEach(function(el) {el.classList.add('revealed');});document.querySelectorAll('.separator').forEach(function(el) {el.classList.add('revealed');});}
-var observer=new IntersectionObserver(function(entries) {if(entries[0].isIntersecting) {doReveal();observer.disconnect();}},{threshold:0.4});observer.observe(document.getElementById('countdownContainer'));setTimeout(function() {var r=document.getElementById('countdownContainer').getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0) doReveal();},200);})();</script> 
-<script>
-
-// Filter Events Tabs
-function filterEvents(day, btn) {
-  var btns = document.querySelectorAll('.we-tab-btn');
-  btns.forEach(function(b) { b.classList.remove('is-active'); });
-  if (btn) btn.classList.add('is-active');
-
-  var banners = document.querySelectorAll('.we-day-banner');
-  var cards = document.querySelectorAll('.we-card');
-
-  if (day === 'all') {
-    banners.forEach(function(el) { el.style.display = 'block'; });
-    cards.forEach(function(el) { el.style.display = 'flex'; });
-  } else {
-    banners.forEach(function(el) {
-      el.style.display = (el.getAttribute('data-day') === day) ? 'block' : 'none';
-    });
-    cards.forEach(function(el) {
-      el.style.display = (el.getAttribute('data-day') === day) ? 'flex' : 'none';
-    });
-  }
-}
-window.filterEvents = filterEvents;
-
-(function() {
-  function applyWeddingData() {
-    var W = window.WEDDING_DATA;
-    if (!W) return;
-    
-    // Couple Names
-    if (W.couple) {
-      var coupleEl = document.querySelector("[field='tn_text_1763402147625']");
-      if (coupleEl && W.couple.groom && W.couple.bride) {
-        coupleEl.innerHTML = W.couple.groom + ' <br /><br />' + W.couple.bride;
-      }
-      var subEl = document.querySelector("[field='tn_text_1780748008617000003']");
-      if (subEl && W.couple.subtitle) {
-        subEl.innerHTML = W.couple.subtitle;
-      }
-    }
-
-    // Wedding Date & Note
-    if (W.wedding) {
-      var dateEl = document.querySelector("[field='tn_text_176340401720454780']");
-      if (dateEl && W.wedding.dateLabel) dateEl.textContent = W.wedding.dateLabel;
-      var invEl = document.querySelector("[field='tn_text_1780748008617000005']");
-      if (invEl && W.wedding.invitationNote) invEl.innerHTML = W.wedding.invitationNote;
-    }
-
-    // Venue & Address
-    if (W.venue) {
-      var vEl = document.querySelector("[field='tn_text_1772804808869']");
-      if (vEl && W.venue.name) vEl.textContent = W.venue.name;
-      var aEl = document.querySelector("[field='tn_text_1772813480591000001']");
-      if (aEl && W.venue.address) aEl.textContent = 'Address: ' + W.venue.address;
-
-      var mapsBtn = document.querySelector("a[href*='maps.google.com'], a[href*='google.com/maps']");
-      if (mapsBtn && W.venue.mapsUrl) mapsBtn.href = W.venue.mapsUrl;
-    }
-
-    // Calendar Link
-    var calBtn = document.querySelector("a[href*='calendar.google.com']");
-    if (calBtn && W.couple && W.wedding && W.venue) {
-      try {
-        var d = new Date(W.wedding.dateISO);
-        var end = new Date(d.getTime() + 10 * 3600 * 1000);
-        var fmt = function(dt) { return dt.toISOString().replace(/[-:]|\.\d{3}/g, '').slice(0, 15) + 'Z'; };
-        calBtn.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent((W.couple.groom || 'Harshit') + ' & ' + (W.couple.bride || 'Disha') + ' Wedding Celebrations') + '&dates=' + fmt(d) + '/' + fmt(end) + '&details=' + encodeURIComponent('Wedding Celebrations of Harshit & Disha! Venue: ' + (W.venue.name || 'Aligarh')) + '&location=' + encodeURIComponent((W.venue.name || '') + ', ' + (W.venue.address || ''));
-      } catch(e) {}
-    }
-
-    // Details (Gift & Dress Code)
-    if (W.details) {
-      var giftEl = document.querySelector("[field='tn_text_1772813849329000001']");
-      if (giftEl && W.details.giftPreference) giftEl.textContent = W.details.giftPreference;
-      var dressEl = document.querySelector("[field='tn_text_1778524751695000001']");
-      if (dressEl && W.details.dressCode) dressEl.textContent = W.details.dressCode;
-    }
-
-    // Media
-    if (W.media) {
-      if (W.media.overlayImage) {
-        var oi = document.getElementById('weiImg');
-        if (oi) oi.src = W.media.overlayImage;
-      }
-      if (W.media.sealVideo) {
-        var sv = document.getElementById('weiVideo');
-        if (sv) sv.src = W.media.sealVideo;
-      }
-      if (W.media.heroVideo) {
-        var hv = document.querySelector('video source[src*="Swans2.mov"]');
-        if (hv) hv.src = W.media.heroVideo;
-      }
-      if (W.media.audio) {
-        var au = document.querySelector('audio#weiAudio source');
-        if (au) au.src = W.media.audio;
-      }
-      if (W.media.monogram) {
-        var heroMono = document.querySelector("#rec2487446043 .tn-elem[data-elem-id='1782312134224'] img");
-        if (heroMono) heroMono.src = W.media.monogram;
-      }
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyWeddingData);
-  } else {
-    applyWeddingData();
-  }
-  window.addEventListener('load', applyWeddingData);
-})();
-</script>
-
-
-</body> </html> </div> </div> <div class='t396__elem tn-elem tn-elem__24874460931771277026942000001' data-elem-id='1771277026942000001' data-elem-type='text' data-field-top-value="28" data-field-left-value="320" data-field-height-value="64" data-field-width-value="560" data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value="px" data-field-widthunits-value="px" data-field-textfit-value="autoheight" data-field-fontsize-value="41" data-field-top-res-320-value="29" data-field-left-res-320-value="-120" data-field-top-res-480-value="27" data-field-left-res-480-value="-40" data-field-top-res-640-value="28" data-field-left-res-640-value="40" data-field-top-res-960-value="27" data-field-left-res-960-value="200"> <div class='tn-atom'field='tn_text_1771277026942000001'>The Celebration Begins In</div> </div> </div> </div> <script>t_onReady(function() {t_onFuncLoad('t396_init',function() {t396_init('2487446093');});});</script> <!-- /T396 --> </div> 
+var observer=new IntersectionObserver(function(entries) {if(entries[0].isIntersecting) {doReveal();observer.disconnect();}},{threshold:0.4});observer.observe(document.getElementById('countdownContainer'));setTimeout(function() {var r=document.getElementById('countdownContainer').getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0) doReveal();},200);})();</script> </body> </html> </div> </div> <div class='t396__elem tn-elem tn-elem__24874460931771277026942000001' data-elem-id='1771277026942000001' data-elem-type='text' data-field-top-value="28" data-field-left-value="320" data-field-height-value="64" data-field-width-value="560" data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value="px" data-field-widthunits-value="px" data-field-textfit-value="autoheight" data-field-fontsize-value="41" data-field-top-res-320-value="29" data-field-left-res-320-value="-120" data-field-top-res-480-value="27" data-field-left-res-480-value="-40" data-field-top-res-640-value="28" data-field-left-res-640-value="40" data-field-top-res-960-value="27" data-field-left-res-960-value="200"> <div class='tn-atom'field='tn_text_1771277026942000001'>The Celebration Begins In</div> </div> </div> </div> <script>t_onReady(function() {t_onFuncLoad('t396_init',function() {t396_init('2487446093');});});</script> <!-- /T396 --> </div> 
 <!-- Wedding Celebrations & Schedule of Events (8 Functions) -->
-<section id="wedding-events" class="wedding-events-section" aria-label="Schedule of Events">
-  <div class="we-container">
-    <div class="we-kicker">WEDDING CELEBRATIONS</div>
-    <h2 class="we-title">Schedule of Events</h2>
-    <p class="we-subtitle">Eight joyous celebrations of love, music &amp; timeless traditions</p>
-    <div class="we-ornament">
-      <span class="we-ornament-line"></span>
-      <span class="we-ornament-dot"></span>
-      <span class="we-ornament-line"></span>
-    </div>
+<!-- Schedule of Events (OG Template Authentic Luxury Design) -->
+<section id="wedding-events" class="og-schedule-section" aria-label="Schedule of Events">
+  <!-- Top Deckled Paper Edge -->
+  <div class="og-paper-edge-wrap og-edge-top">
+    <img src="images/cdn/noroot_12.png" alt="" class="og-paper-edge-img" />
+  </div>
 
-    <!-- Day Filter Tabs -->
-    <div class="we-tabs">
-      <button type="button" class="we-tab-btn is-active" onclick="filterEvents('all', this)">All Celebrations (8)</button>
-      <button type="button" class="we-tab-btn" onclick="filterEvents('day1', this)">25 Nov · Day 1</button>
-      <button type="button" class="we-tab-btn" onclick="filterEvents('day2', this)">26 Nov · Wedding Day</button>
-      <button type="button" class="we-tab-btn" onclick="filterEvents('day3', this)">1 Dec · Vidai</button>
+  <div class="og-schedule-content">
+    <!-- Header with decorative flourishes -->
+    <div class="og-schedule-header">
+      <img src="images/cdn/left-element_1.png" alt="" class="og-header-flourish og-flourish-left" />
+      <h2 class="og-schedule-title">Schedule of Events</h2>
+      <img src="images/cdn/right-element_1.png" alt="" class="og-header-flourish og-flourish-right" />
     </div>
 
     <!-- Timeline of All 8 Functions -->
-    <div class="we-timeline" id="weddingEventsTimeline">
-      <!-- Day 1 Header -->
-      <div class="we-day-banner" data-day="day1">
-        <div class="we-day-banner-title">Wednesday, 25 November 2026 · Celebrations Begin</div>
-      </div>
+    <div class="og-timeline-wrap" id="weddingEventsTimeline">
+      <!-- Center vertical line -->
+      <div class="og-timeline-line"></div>
 
       <!-- Function 1 -->
-      <div class="we-card" data-day="day1">
-        <div class="we-card-badge-col">
-          <div class="we-num-circle">01</div>
-          <span class="we-badge-tag">Haldi</span>
+      <div class="og-timeline-row">
+        <div class="og-row-time">
+          <span class="og-date-tag">25 Nov</span>
+          <span class="og-time-text">11:00 AM</span>
         </div>
-        <div class="we-card-content">
-          <div class="we-card-top-row">
-            <span class="we-card-name">Haldi Hungama</span>
-            <span class="we-card-time">11:00 AM onwards</span>
-          </div>
-          <div class="we-card-date">25 - November - 2026</div>
-          <div class="we-card-meta">
-            <div class="we-meta-row">
-              <span class="we-meta-icon">📍</span>
-              <span><strong>Venue:</strong> Mango lawn (opp. to bar)</span>
-            </div>
-            <div class="we-meta-row">
-              <span class="we-meta-icon">👗</span>
-              <span><strong>Dress Code:</strong> <span class="we-dresscode-pill">Pretty in pastels</span></span>
-            </div>
-          </div>
+        <div class="og-row-marker">
+          <span class="og-diamond"></span>
+        </div>
+        <div class="og-row-details">
+          <h3 class="og-event-title">Haldi Hungama</h3>
+          <div class="og-event-sub">Mango lawn (opp. to bar)<span class="og-bullet">&bull;</span>Dress Code: Pretty in pastels</div>
         </div>
       </div>
 
       <!-- Function 2 -->
-      <div class="we-card" data-day="day1">
-        <div class="we-card-badge-col">
-          <div class="we-num-circle">02</div>
-          <span class="we-badge-tag">Sangeet</span>
+      <div class="og-timeline-row">
+        <div class="og-row-time">
+          <span class="og-date-tag">25 Nov</span>
+          <span class="og-time-text">5:00 PM</span>
         </div>
-        <div class="we-card-content">
-          <div class="we-card-top-row">
-            <span class="we-card-name">Mastani Shaam</span>
-            <span class="we-card-time">5:00 PM onwards</span>
-          </div>
-          <div class="we-card-date">25 November 2026</div>
-          <div class="we-card-meta">
-            <div class="we-meta-row">
-              <span class="we-meta-icon">📍</span>
-              <span><strong>Venue:</strong> Mango Courtyard</span>
-            </div>
-            <div class="we-meta-row">
-              <span class="we-meta-icon">👗</span>
-              <span><strong>Dress Code:</strong> <span class="we-dresscode-pill">Glamour Edit</span></span>
-            </div>
-          </div>
+        <div class="og-row-marker">
+          <span class="og-diamond"></span>
         </div>
-      </div>
-
-      <!-- Day 2 Header -->
-      <div class="we-day-banner" data-day="day2">
-        <div class="we-day-banner-title">Thursday, 26 November 2026 · The Auspicious Wedding Day</div>
+        <div class="og-row-details">
+          <h3 class="og-event-title">Mastani Shaam</h3>
+          <div class="og-event-sub">Mango Courtyard<span class="og-bullet">&bull;</span>Dress Code: Glamour Edit</div>
+        </div>
       </div>
 
       <!-- Function 3 -->
-      <div class="we-card" data-day="day2">
-        <div class="we-card-badge-col">
-          <div class="we-num-circle">03</div>
-          <span class="we-badge-tag">Barat</span>
+      <div class="og-timeline-row">
+        <div class="og-row-time">
+          <span class="og-date-tag">26 Nov</span>
+          <span class="og-time-text">11:00 AM</span>
         </div>
-        <div class="we-card-content">
-          <div class="we-card-top-row">
-            <span class="we-card-name">Jashan - e - Barat</span>
-            <span class="we-card-time">11:00 AM</span>
-          </div>
-          <div class="we-card-date">26 November 2026</div>
-          <div class="we-card-meta">
-            <div class="we-meta-row">
-              <span class="we-meta-icon">👗</span>
-              <span><strong>Dress Code:</strong> <span class="we-dresscode-pill">Timeless Traditionals</span></span>
-            </div>
-          </div>
+        <div class="og-row-marker">
+          <span class="og-diamond"></span>
+        </div>
+        <div class="og-row-details">
+          <h3 class="og-event-title">Jashan - e - Barat</h3>
+          <div class="og-event-sub">Dress Code: Timeless Traditionals</div>
         </div>
       </div>
 
-      <!-- Function 4 -->
-      <div class="we-card" data-day="day2">
-        <div class="we-card-badge-col">
-          <div class="we-num-circle">04</div>
-          <span class="we-badge-tag">Vows</span>
+      <!-- Function 4 (Sacred wedding vows with rose emblem) -->
+      <div class="og-timeline-row og-row-highlight">
+        <div class="og-row-time">
+          <span class="og-date-tag">26 Nov</span>
+          <span class="og-time-text">12:00 PM</span>
         </div>
-        <div class="we-card-content">
-          <div class="we-card-top-row">
-            <span class="we-card-name">Vivah Sankalp</span>
-            <span class="we-card-time">12:00 PM onwards</span>
-          </div>
-          <div class="we-card-date">26 November 2026</div>
-          <div class="we-card-meta">
-            <div class="we-meta-row">
-              <span class="we-meta-icon">📍</span>
-              <span><strong>Venue:</strong> Kosi Deck</span>
-            </div>
-          </div>
+        <div class="og-row-marker">
+          <img src="images/cdn/rose_-_Copy.png" class="og-rose-marker" alt="Rose" />
+        </div>
+        <div class="og-row-details">
+          <h3 class="og-event-title">Vivah Sankalp</h3>
+          <div class="og-event-sub">Kosi Deck</div>
         </div>
       </div>
 
       <!-- Function 5 -->
-      <div class="we-card" data-day="day2">
-        <div class="we-card-badge-col">
-          <div class="we-num-circle">05</div>
-          <span class="we-badge-tag">Varmala</span>
+      <div class="og-timeline-row">
+        <div class="og-row-time">
+          <span class="og-date-tag">26 Nov</span>
+          <span class="og-time-text">8:00 PM</span>
         </div>
-        <div class="we-card-content">
-          <div class="we-card-top-row">
-            <span class="we-card-name">Prem Mala</span>
-            <span class="we-card-subname">(A varmala ceremony)</span>
-            <span class="we-card-time">8:00 PM</span>
-          </div>
-          <div class="we-card-date">26 November 2026</div>
-          <div class="we-card-meta">
-            <div class="we-meta-row">
-              <span class="we-meta-icon">📍</span>
-              <span><strong>Venue:</strong> Kosi Deck - river side lawn</span>
-            </div>
-          </div>
+        <div class="og-row-marker">
+          <span class="og-diamond"></span>
+        </div>
+        <div class="og-row-details">
+          <h3 class="og-event-title">Prem Mala</h3>
+          <div class="og-event-sub">A varmala ceremony<span class="og-bullet">&bull;</span>Kosi Deck - river side lawn</div>
         </div>
       </div>
 
       <!-- Function 6 -->
-      <div class="we-card" data-day="day2">
-        <div class="we-card-badge-col">
-          <div class="we-num-circle">06</div>
-          <span class="we-badge-tag">Celebration</span>
+      <div class="og-timeline-row">
+        <div class="og-row-time">
+          <span class="og-date-tag">26 Nov</span>
+          <span class="og-time-text">8:00 PM</span>
         </div>
-        <div class="we-card-content">
-          <div class="we-card-top-row">
-            <span class="we-card-name">Jal Mata Celebration</span>
-            <span class="we-card-time">8:00 PM onwards</span>
-          </div>
-          <div class="we-card-date">26 November 2026</div>
-          <div class="we-card-meta">
-            <div class="we-meta-row">
-              <span class="we-meta-icon">📍</span>
-              <span><strong>Venue:</strong> The Radha Van, Agra Road, Aligarh</span>
-            </div>
-          </div>
+        <div class="og-row-marker">
+          <span class="og-diamond"></span>
+        </div>
+        <div class="og-row-details">
+          <h3 class="og-event-title">Jal Mata Celebration</h3>
+          <div class="og-event-sub">The Radha Van, Agra Road, Aligarh</div>
         </div>
       </div>
 
       <!-- Function 7 -->
-      <div class="we-card" data-day="day2">
-        <div class="we-card-badge-col">
-          <div class="we-num-circle">07</div>
-          <span class="we-badge-tag">Gala</span>
+      <div class="og-timeline-row">
+        <div class="og-row-time">
+          <span class="og-date-tag">26/30 Nov</span>
+          <span class="og-time-text">7:30 PM</span>
         </div>
-        <div class="we-card-content">
-          <div class="we-card-top-row">
-            <span class="we-card-name">Gala Celebration</span>
-            <span class="we-card-time">7:30 PM onwards</span>
-          </div>
-          <div class="we-card-date">26 / 30 November 2026</div>
-          <div class="we-card-meta">
-            <div class="we-meta-row">
-              <span class="we-meta-icon">📍</span>
-              <span><strong>Venue:</strong> Rudraksh Lawn</span>
-            </div>
-          </div>
+        <div class="og-row-marker">
+          <span class="og-diamond"></span>
         </div>
-      </div>
-
-      <!-- Day 3 Header -->
-      <div class="we-day-banner" data-day="day3">
-        <div class="we-day-banner-title">Tuesday, 1 December 2026 · Auspicious Farewell</div>
+        <div class="og-row-details">
+          <h3 class="og-event-title">Gala Celebration</h3>
+          <div class="og-event-sub">Rudraksh Lawn</div>
+        </div>
       </div>
 
       <!-- Function 8 -->
-      <div class="we-card" data-day="day3">
-        <div class="we-card-badge-col">
-          <div class="we-num-circle">08</div>
-          <span class="we-badge-tag">Vidai</span>
+      <div class="og-timeline-row">
+        <div class="og-row-time">
+          <span class="og-date-tag">1 Dec</span>
+          <span class="og-time-text">10:00 AM</span>
         </div>
-        <div class="we-card-content">
-          <div class="we-card-top-row">
-            <span class="we-card-name">Pyaar Bhari Vidai</span>
-            <span class="we-card-time">10:00 AM</span>
-          </div>
-          <div class="we-card-date">1 December 2026</div>
-          <div class="we-card-meta">
-            <div class="we-meta-row">
-              <span class="we-meta-icon">💐</span>
-              <span>With heartfelt blessings, tears of joy &amp; eternal memories</span>
-            </div>
-          </div>
+        <div class="og-row-marker">
+          <span class="og-diamond"></span>
+        </div>
+        <div class="og-row-details">
+          <h3 class="og-event-title">Pyaar Bhari Vidai</h3>
+          <div class="og-event-sub">Warm blessings &amp; joyous send-off</div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Bottom Deckled Paper Edge -->
+  <div class="og-paper-edge-wrap og-edge-bottom">
+    <img src="images/cdn/noroot_1.png" alt="" class="og-paper-edge-img" />
   </div>
 </section>
 
@@ -667,4 +483,131 @@ alt='' imgfield='tn_img_1773673546575'
 </section>
 
 </div> <!--/allrecords--> <!-- Stat --> <script type="text/javascript">if(!window.mainTracker) {window.mainTracker='tilda';}
-window.tildastatcookie='no';setTimeout(function(){(function(d,w,k,o,g) {var n=d.getElementsByTagName(o)[0],s=d.createElement(o),f=function(){n.parentNode.insertBefore(s,n);};s.type="text/javascript";s.async=true;s.key=k;s.id="tildastatscript";s.src=g;if(w.opera=="[object Opera]") {d.addEventListener("DOMContentLoaded",f,false);} else {f();}})(document,window,'aed5bb11e83b8f0989507efd8c6904b3','script','js/tilda-stat-1.0.min.js');},2000);</script> </body> </html>
+window.tildastatcookie='no';setTimeout(function(){(function(d,w,k,o,g) {var n=d.getElementsByTagName(o)[0],s=d.createElement(o),f=function(){n.parentNode.insertBefore(s,n);};s.type="text/javascript";s.async=true;s.key=k;s.id="tildastatscript";s.src=g;if(w.opera=="[object Opera]") {d.addEventListener("DOMContentLoaded",f,false);} else {f();}})(document,window,'aed5bb11e83b8f0989507efd8c6904b3','script','js/tilda-stat-1.0.min.js');},2000);</script> 
+<script>
+(function() {
+  function applyWeddingData() {
+    var W = window.WEDDING_DATA;
+    if (!W) return;
+    
+    // Couple Names
+    if (W.couple) {
+      var coupleEl = document.querySelector("[field='tn_text_1763402147625']");
+      if (coupleEl && W.couple.groom && W.couple.bride) {
+        coupleEl.innerHTML = W.couple.groom + ' <br /><br />' + W.couple.bride;
+      }
+      var subEl = document.querySelector("[field='tn_text_1780748008617000003']");
+      if (subEl && W.couple.subtitle) {
+        subEl.innerHTML = W.couple.subtitle;
+      }
+    }
+
+    // Wedding Date & Note
+    if (W.wedding) {
+      var dateEl = document.querySelector("[field='tn_text_176340401720454780']");
+      if (dateEl && W.wedding.dateLabel) dateEl.textContent = W.wedding.dateLabel;
+      var invEl = document.querySelector("[field='tn_text_1780748008617000005']");
+      if (invEl && W.wedding.invitationNote) invEl.innerHTML = W.wedding.invitationNote;
+    }
+
+    // Venue & Address
+    if (W.venue) {
+      var vEl = document.querySelector("[field='tn_text_1772804808869']");
+      if (vEl && W.venue.name) vEl.textContent = W.venue.name;
+      var aEl = document.querySelector("[field='tn_text_1772813480591000001']");
+      if (aEl && W.venue.address) aEl.textContent = 'Address: ' + W.venue.address;
+
+      var mapsBtn = document.querySelector("a[href*='maps.google.com'], a[href*='google.com/maps']");
+      if (mapsBtn && W.venue.mapsUrl) mapsBtn.href = W.venue.mapsUrl;
+    }
+
+    // Calendar Link
+    var calBtn = document.querySelector("a[href*='calendar.google.com']");
+    if (calBtn && W.couple && W.wedding && W.venue) {
+      try {
+        var d = new Date(W.wedding.dateISO);
+        var end = new Date(d.getTime() + 10 * 3600 * 1000);
+        var fmt = function(dt) { return dt.toISOString().replace(/[-:]|\.\d{3}/g, '').slice(0, 15) + 'Z'; };
+        calBtn.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent((W.couple.groom || 'Harshit') + ' & ' + (W.couple.bride || 'Disha') + ' Wedding Celebrations') + '&dates=' + fmt(d) + '/' + fmt(end) + '&details=' + encodeURIComponent('Wedding Celebrations of Harshit & Disha! Venue: ' + (W.venue.name || 'Aligarh')) + '&location=' + encodeURIComponent((W.venue.name || '') + ', ' + (W.venue.address || ''));
+      } catch(e) {}
+    }
+
+    // Details (Gift & Dress Code)
+    if (W.details) {
+      var giftEl = document.querySelector("[field='tn_text_1772813849329000001']");
+      if (giftEl && W.details.giftPreference) giftEl.textContent = W.details.giftPreference;
+      var dressEl = document.querySelector("[field='tn_text_1778524751695000001']");
+      if (dressEl && W.details.dressCode) dressEl.textContent = W.details.dressCode;
+    }
+
+    // Media
+    if (W.media) {
+      if (W.media.overlayImage) {
+        var oi = document.getElementById('weiImg');
+        if (oi) oi.src = W.media.overlayImage;
+      }
+      if (W.media.sealVideo) {
+        var sv = document.getElementById('weiVideo');
+        if (sv) sv.src = W.media.sealVideo;
+      }
+      if (W.media.heroVideo) {
+        var hv = document.querySelector('video source[src*="Swans2.mov"]');
+        if (hv) hv.src = W.media.heroVideo;
+      }
+      if (W.media.audio) {
+        var au = document.querySelector('audio#weiAudio source');
+        if (au) au.src = W.media.audio;
+      }
+      if (W.media.monogram) {
+        var heroMono = document.querySelector("#rec2487446043 .tn-elem[data-elem-id='1782312134224'] img");
+        if (heroMono) heroMono.src = W.media.monogram;
+      }
+    }
+
+    // Dynamic update for OG schedule if W.functions is updated
+    if (W.functions && Array.isArray(W.functions) && W.functions.length > 0) {
+      var timelineEl = document.getElementById('weddingEventsTimeline');
+      if (timelineEl) {
+        var html = '<div class="og-timeline-line"></div>';
+        W.functions.forEach(function(ev, idx) {
+          var isHighlight = (ev.num === 4 || /Vivah|Nikkah|Wedding/i.test(ev.name));
+          var dateTag = ev.date ? ev.date.replace(/ - /g, ' ').replace(/ 2026/g, '').trim() : '';
+          var subParts = [];
+          if (ev.subtitle) subParts.push(ev.subtitle);
+          if (ev.venue) subParts.push(ev.venue);
+          if (ev.dressCode) subParts.push('Dress Code: ' + ev.dressCode);
+          var subHtml = subParts.join('<span class="og-bullet">&bull;</span>');
+
+          html += '<div class="og-timeline-row' + (isHighlight ? ' og-row-highlight' : '') + '">';
+          html += '  <div class="og-row-time">';
+          if (dateTag) html += '    <span class="og-date-tag">' + dateTag + '</span>';
+          html += '    <span class="og-time-text">' + (ev.time || '') + '</span>';
+          html += '  </div>';
+          html += '  <div class="og-row-marker">';
+          if (isHighlight) {
+            html += '    <img src="images/cdn/rose_-_Copy.png" class="og-rose-marker" alt="Rose" />';
+          } else {
+            html += '    <span class="og-diamond"></span>';
+          }
+          html += '  </div>';
+          html += '  <div class="og-row-details">';
+          html += '    <h3 class="og-event-title">' + (ev.name || '') + '</h3>';
+          if (subHtml) html += '    <div class="og-event-sub">' + subHtml + '</div>';
+          html += '  </div>';
+          html += '</div>';
+        });
+        timelineEl.innerHTML = html;
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyWeddingData);
+  } else {
+    applyWeddingData();
+  }
+  window.addEventListener('load', applyWeddingData);
+})();
+</script>
+
+</body> </html>

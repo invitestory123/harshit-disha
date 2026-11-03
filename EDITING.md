@@ -23,7 +23,14 @@ All routine customer edits are configured in:
 - `wedding.dateISO`: `"2026-11-26T11:00:00+05:30"` (drives live countdown timer & calendar link)
 - `wedding.invitationNote`: Cordial invitation note from parents
 
-### Schedule of Events (8 Functions)
+### Schedule of Events (OG Template Authentic Design)
+The schedule block faithfully replicates the original `wax-seal-royale` luxury design:
+- Deckled torn parchment edges top (`images/cdn/noroot_12.png`) and bottom (`images/cdn/noroot_1.png`)
+- Golden cursive calligraphic heading flanked by flourishes (`images/cdn/left-element_1.png` and `images/cdn/right-element_1.png`)
+- Central vertical hairline with rotated diamond markers (`♦`)
+- Central sacred vow highlight: Pink rose blossom emblem (`images/cdn/rose_-_Copy.png`) rotated 325°
+- Right-aligned Time & Date on the left; Left-aligned Event Name, Venue & Dress Code on the right
+
 1. **Haldi Hungama** — 25 Nov 2026 · 11:00 AM onwards (Mango lawn opp to bar) · Dress: *Pretty in pastels*
 2. **Mastani Shaam** — 25 Nov 2026 · 5:00 PM onwards (Mango Courtyard) · Dress: *Glamour Edit*
 3. **Jashan - e - Barat** — 26 Nov 2026 · 11:00 AM · Dress: *Timeless Traditionals*

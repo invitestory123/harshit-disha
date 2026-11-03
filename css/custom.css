@@ -239,273 +239,277 @@
 
 /* ============================================================
    2. WEDDING EVENTS & SCHEDULE SECTION (#wedding-events)
+      OG Template Authentic Luxury Timeline Design
    ============================================================ */
-.wedding-events-section {
+.og-schedule-section {
   position: relative;
-  background-color: var(--bg-cream);
-  padding: 65px 16px 55px;
-  text-align: center;
+  background-color: var(--bg-cream, #f9f0e0);
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
   box-sizing: border-box;
 }
-.we-container {
-  max-width: 920px;
+
+.og-paper-edge-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 0;
+  pointer-events: none;
+}
+.og-edge-top {
+  margin-top: -2px;
+}
+.og-edge-bottom {
+  margin-bottom: -4px;
+}
+.og-paper-edge-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.og-schedule-content {
+  position: relative;
+  max-width: 760px;
   margin: 0 auto;
+  padding: 10px 20px 24px;
+  box-sizing: border-box;
+  z-index: 2;
 }
-.we-kicker {
-  font-family: 'Cinzel', Georgia, serif;
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold-primary);
-  margin-bottom: 8px;
-}
-.we-title {
-  font-family: 'Cinzel', Georgia, serif;
-  font-size: 38px;
-  font-weight: 400;
-  color: var(--gold-deep);
-  margin: 0 0 10px;
-  letter-spacing: 0.05em;
-}
-.we-subtitle {
-  font-family: 'NewFonts', Arial, sans-serif;
-  font-size: 16px;
-  font-style: italic;
-  color: var(--text-soft);
-  margin-bottom: 28px;
-}
-.we-ornament {
+
+.og-schedule-header {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 32px;
-}
-.we-ornament-line {
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-}
-.we-ornament-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--gold-primary);
-  transform: rotate(45deg);
-}
-
-/* Day Filter Tabs */
-.we-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 35px;
-}
-.we-tab-btn {
-  padding: 11px 24px;
-  border-radius: 25px;
-  border: 1px solid var(--card-border);
-  background: rgba(255, 255, 255, 0.75);
-  font-family: 'Cinzel', serif;
-  font-size: 12.5px;
-  letter-spacing: 0.12em;
-  color: var(--text-dark);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  outline: none;
-  box-shadow: 0 2px 8px rgba(166, 125, 43, 0.08);
-}
-.we-tab-btn:hover {
-  background: #ffffff;
-  border-color: var(--gold-primary);
-  color: var(--gold-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(166, 125, 43, 0.15);
-}
-.we-tab-btn.is-active {
-  background: linear-gradient(135deg, #b48c3d, #85641e);
-  border-color: #85641e;
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(133, 100, 30, 0.32);
-  transform: translateY(-1px);
-}
-
-/* Timeline & Function Cards */
-.we-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-/* Day Header Banner */
-.we-day-banner {
-  background: linear-gradient(90deg, transparent, rgba(180, 140, 61, 0.16), transparent);
-  border-top: 1px solid rgba(180, 140, 61, 0.3);
-  border-bottom: 1px solid rgba(180, 140, 61, 0.3);
-  padding: 13px 18px;
-  margin: 18px 0 8px;
+  margin-bottom: 34px;
   text-align: center;
 }
-.we-day-banner-title {
-  font-family: 'Cinzel', serif;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: var(--gold-deep);
-  text-transform: uppercase;
+.og-header-flourish {
+  width: 76px;
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+  opacity: 0.95;
+  flex-shrink: 0;
+}
+.og-schedule-title {
+  font-family: 'NewFonts', cursive, 'Cinzel', serif;
+  font-weight: 300;
+  font-size: 42px;
+  color: var(--gold-deep, #a67d2b);
+  line-height: 1.25;
+  margin: 0;
+  padding: 0 4px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
-/* Function Card Item */
-.we-card {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  padding: 24px 26px;
-  box-shadow: 0 5px 18px rgba(166, 125, 43, 0.08);
-  display: flex;
-  gap: 22px;
-  align-items: flex-start;
+.og-timeline-wrap {
   position: relative;
-  transition: all 0.25s ease;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 6px 0 16px;
+  box-sizing: border-box;
 }
-.we-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(166, 125, 43, 0.15);
-  border-color: var(--gold-primary);
+
+.og-timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  bottom: 24px;
+  width: 1px;
+  background-color: #9c8575;
+  opacity: 0.55;
+  transform: translateX(-50%);
+  z-index: 1;
 }
-.we-card-badge-col {
+
+.og-timeline-row {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 72px;
+  margin-bottom: 18px;
+}
+.og-timeline-row:last-child {
+  margin-bottom: 0;
+}
+
+.og-row-time {
+  flex: 1;
+  text-align: right;
+  padding-right: 28px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  min-width: 65px;
+  align-items: flex-end;
+  justify-content: center;
 }
-.we-num-circle {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(180, 140, 61, 0.12);
-  border: 1.5px solid var(--gold-primary);
-  color: var(--gold-deep);
+.og-date-tag {
+  display: inline-block;
+  font-family: 'Webgency', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a07b33;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.og-time-text {
+  font-family: 'NewFonts', Georgia, serif;
+  font-weight: 600;
+  font-size: 25px;
+  color: #846f61;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.og-row-marker {
+  width: 40px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cinzel', serif;
-  font-size: 16px;
-  font-weight: 700;
+  position: relative;
+  z-index: 2;
 }
-.we-badge-tag {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-  background: rgba(180, 140, 61, 0.15);
-  padding: 3px 8px;
-  border-radius: 12px;
-  font-weight: 600;
+.og-diamond {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #8c7666;
+  transform: rotate(45deg);
+  box-shadow: 0 0 0 4px #f9f0e0;
+}
+.og-rose-marker {
+  display: block;
+  width: 54px;
+  height: auto;
+  transform: rotate(325deg);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
 }
 
-.we-card-content {
+.og-row-details {
   flex: 1;
-}
-.we-card-top-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-.we-card-name {
-  font-family: 'Cinzel', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-dark);
-  letter-spacing: 0.02em;
-}
-.we-card-subname {
-  font-size: 15px;
-  font-style: italic;
-  color: var(--text-soft);
-  margin-left: 6px;
-  font-weight: 400;
-}
-.we-card-time {
-  font-family: 'Cinzel', serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--gold-deep);
-  letter-spacing: 0.06em;
-  white-space: nowrap;
-}
-.we-card-date {
-  font-family: 'NewFonts', Arial, sans-serif;
-  font-size: 13.5px;
-  color: var(--text-soft);
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-
-.we-card-meta {
+  text-align: left;
+  padding-left: 28px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-family: 'NewFonts', Arial, sans-serif;
-  font-size: 14.5px;
-  line-height: 1.45;
-  color: var(--text-dark);
-}
-.we-meta-row {
-  display: flex;
   align-items: flex-start;
-  gap: 8px;
+  justify-content: center;
 }
-.we-meta-icon {
-  font-size: 15px;
-  color: var(--gold-primary);
-  flex-shrink: 0;
-  margin-top: 1px;
+.og-event-title {
+  font-family: 'NewFonts', Georgia, serif;
+  font-weight: 100;
+  font-size: 22px;
+  color: #6c513f;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: 0.02em;
 }
-.we-dresscode-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(180, 140, 61, 0.12);
-  border: 1px dashed rgba(180, 140, 61, 0.45);
-  padding: 3px 12px;
-  border-radius: 15px;
+.og-event-sub {
+  font-family: 'Webgency', Arial, sans-serif;
   font-size: 13px;
-  color: var(--gold-deep);
-  font-weight: 600;
+  font-weight: 400;
+  color: #846f61;
+  line-height: 1.45;
+  margin-top: 4px;
+  opacity: 0.92;
+}
+.og-bullet {
+  display: inline-block;
+  margin: 0 6px;
+  color: #a07b33;
+  font-size: 11px;
 }
 
-@media (max-width: 600px) {
-  .we-card {
-    flex-direction: column;
-    padding: 18px 16px;
-    gap: 12px;
+@media screen and (max-width: 640px) {
+  .og-schedule-content {
+    padding: 8px 14px 18px;
   }
-  .we-card-badge-col {
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
+  .og-schedule-title {
+    font-size: 32px;
   }
-  .we-num-circle {
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
+  .og-header-flourish {
+    width: 56px;
+    max-height: 30px;
   }
-  .we-card-top-row {
-    flex-direction: column;
-    gap: 3px;
+  .og-schedule-header {
+    gap: 8px;
+    margin-bottom: 26px;
   }
-  .we-card-name {
+  .og-row-time {
+    padding-right: 18px;
+  }
+  .og-row-details {
+    padding-left: 18px;
+  }
+  .og-time-text {
+    font-size: 21px;
+  }
+  .og-date-tag {
+    font-size: 10px;
+  }
+  .og-event-title {
     font-size: 19px;
+  }
+  .og-event-sub {
+    font-size: 12px;
+  }
+  .og-rose-marker {
+    width: 46px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .og-schedule-content {
+    padding: 4px 8px 14px;
+  }
+  .og-schedule-title {
+    font-size: 28px;
+  }
+  .og-header-flourish {
+    width: 44px;
+    max-height: 24px;
+  }
+  .og-schedule-header {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .og-row-time {
+    padding-right: 12px;
+  }
+  .og-row-details {
+    padding-left: 12px;
+  }
+  .og-row-marker {
+    width: 32px;
+  }
+  .og-time-text {
+    font-size: 17px;
+  }
+  .og-date-tag {
+    font-size: 9.5px;
+  }
+  .og-event-title {
+    font-size: 16.5px;
+  }
+  .og-event-sub {
+    font-size: 11px;
+  }
+  .og-rose-marker {
+    width: 40px;
+  }
+  .og-timeline-row {
+    min-height: 60px;
+    margin-bottom: 14px;
   }
 }
 
