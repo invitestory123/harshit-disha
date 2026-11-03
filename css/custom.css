@@ -1,3 +1,11 @@
+
+/* Hero Couple Names Bold Styling (BeauRivage font requires weight 800 in Webgency mapping) */
+#rec2487446043 .tn-elem[data-elem-id="1763402147625"] .tn-atom {
+  font-weight: 800 !important;
+  -webkit-text-stroke: 0.8px #a67d2b !important;
+  text-shadow: 0 1px 3px rgba(166, 125, 43, 0.35) !important;
+}
+
 /* ==========================================================================
    WAX SEAL ROYALE — HARSHIT & DISHA CUSTOM STYLES
    Exact OG Template Aesthetic with Responsive Layout Fixes
@@ -47,11 +55,14 @@ body {
     text-align: center !important;
   }
   #rec2487446043 .tn-elem[data-elem-id="1763402147625"] .tn-atom {
-    font-size: 46px !important;
-    line-height: 1.1 !important;
+    font-size: 58px !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
     text-align: center !important;
     padding: 0 16px !important;
     box-sizing: border-box !important;
+    -webkit-text-stroke: 0.8px #a67d2b !important;
+    text-shadow: 0 1px 3px rgba(166, 125, 43, 0.35) !important;
   }
   #rec2487446043 .tn-elem[data-elem-id="176340398328864790"] {
     left: 0 !important;
@@ -728,11 +739,14 @@ html, body {
     text-align: center !important;
   }
   #rec2487446043 .tn-elem[data-elem-id="1763402147625"] .tn-atom {
-    font-size: 46px !important;
-    line-height: 1.1 !important;
+    font-size: 58px !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
     text-align: center !important;
     padding: 0 16px !important;
     box-sizing: border-box !important;
+    -webkit-text-stroke: 0.8px #a67d2b !important;
+    text-shadow: 0 1px 3px rgba(166, 125, 43, 0.35) !important;
   }
   #rec2487446043 .tn-elem[data-elem-id="176340390975774690"] {
     left: 50% !important;
@@ -959,4 +973,125 @@ html, body {
     width: 24px !important;
     height: 24px !important;
   }
+}
+
+
+/* ==========================================================================
+   Location Section: Perfect Center & Concentric Alignment for Card & Border
+   ========================================================================== */
+#rec2487446163 {
+  overflow: visible !important;
+  position: relative !important;
+  max-width: 100vw !important;
+}
+
+#rec2487446163 .t396__artboard {
+  height: 380px !important;
+  position: relative !important;
+  overflow: visible !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  max-width: 100vw !important;
+}
+
+/* Decorative Gold SVG Border (Rectangle_270.svg) */
+#rec2487446163 .tn-elem[data-elem-id="1773673546575"] {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 346px !important;
+  max-width: calc(100vw - 20px) !important;
+  height: 346px !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#rec2487446163 .tn-elem[data-elem-id="1773673546575"] .tn-atom,
+#rec2487446163 .tn-elem[data-elem-id="1773673546575"] img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Content Container */
+#rec2487446163 .tn-elem[data-elem-id="1710614957366"] {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 3 !important;
+  pointer-events: auto !important;
+}
+
+#rec2487446163 .tn-elem[data-elem-id="1710614957366"] .tn-atom,
+#rec2487446163 .tn-elem[data-elem-id="1710614957366"] .tn-atom__html {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Inner Content Card */
+#rec2487446163 .location-content-card {
+  width: 332px !important;
+  max-width: calc(100vw - 34px) !important;
+  height: 332px !important;
+  border-radius: 14px !important;
+  background: #f9f0e0 !important;
+  border: 1px solid rgba(166, 125, 43, 0.25) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 24px 20px !important;
+  box-sizing: border-box !important;
+  margin: 0 auto !important;
+  box-shadow: 0 4px 14px rgba(166, 125, 43, 0.08) !important;
+}
+
+/* Top & Bottom Flourishes */
+#rec2487446163 .tn-elem[data-elem-id="1782460739526000001"] {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: -10px !important;
+  z-index: 4 !important;
+}
+
+#rec2487446163 .tn-elem[data-elem-id="1782460739527000002"] {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  bottom: -10px !important;
+  top: auto !important;
+  z-index: 4 !important;
+}
+
+
+/* Guarantee #rec2487446163 artboard is 100% viewport width and centered */
+#rec2487446163,
+#rec2487446163 .t396,
+#rec2487446163 .t396__artboard,
+#rec2487446163 .t396__carrier,
+#rec2487446163 .t396__filter {
+  width: 100% !important;
+  max-width: 100vw !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 auto !important;
+  transform: none !important;
+  box-sizing: border-box !important;
 }
