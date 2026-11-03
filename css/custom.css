@@ -27,7 +27,7 @@ body {
 
 /* ── HERO OVERRIDES: Fix overlapping monogram, mantra, and names ── */
 #rec2487446043 .t396__artboard {
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 
 /* Ensure Names & Wedding Day are ALWAYS visible on all screens */
@@ -637,4 +637,326 @@ body {
 #rec2487446153 .tn-elem[data-elem-id="1772804808869"],
 #rec2487446153 .tn-elem[data-elem-id="1772813480591000001"] {
   display: none !important;
+}
+
+/* ==========================================================================
+   STRICT MOBILE FIT & RESPONSIVE PERFECTION
+   Prevents horizontal overflow and aligns all cards and timers for mobile
+   ========================================================================== */
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  -webkit-text-size-adjust: 100%;
+}
+
+#allrecords,
+.t396,
+.t396__artboard,
+.t396__carrier,
+.t396__filter {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure Hero Text, Mantra & Family Invitation are ALWAYS visible */
+#rec2487446043 .tn-elem[data-elem-id="1763402147625"],
+#rec2487446043 .tn-elem[data-elem-id="176340398328864790"],
+#rec2487446043 .tn-elem[data-elem-id="176340401720454780"],
+#rec2487446043 .tn-elem[data-elem-id="176340390975774690"],
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000003"],
+#rec2487446043 .tn-elem[data-elem-id="1780748008617000005"],
+#rec2487446043 .tn-elem[data-elem-id="1782312134224"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure countdown timer numbers and labels are always visible and stable */
+#countdownContainer .number {
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+#countdownContainer .label,
+#countdownContainer .separator {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@media screen and (max-width: 640px) {
+  /* Hero Artboard & Elements Centering */
+  #rec2487446043 {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+  }
+  #rec2487446043 .t396__artboard {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+    min-height: 1240px !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1773841348614000001"] {
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    transform: none !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1773841348614000001"] video {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1763402091707"] {
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    transform: none !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1763402147625"],
+  #rec2487446043 .tn-elem[data-elem-id="176340398328864790"],
+  #rec2487446043 .tn-elem[data-elem-id="176340401720454780"] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1763402147625"] .tn-atom {
+    font-size: 46px !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="176340390975774690"] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1780142978273000001"] {
+    left: 0 !important;
+    transform: none !important;
+    max-width: 46vw !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1780748451024000006"] {
+    right: 0 !important;
+    left: auto !important;
+    transform: none !important;
+    max-width: 46vw !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1779527203760000001"] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1779527203760000001"] .tn-atom,
+  #rec2487446043 .tn-elem[data-elem-id="1779527203760000001"] img {
+    width: 100% !important;
+    max-width: 100vw !important;
+    object-fit: cover !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1780144694093"] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: none !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1782312134224"] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1780748008617000003"] {
+    top: 890px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 92% !important;
+    max-width: 460px !important;
+    text-align: center !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1780748008617000005"] {
+    top: 980px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 350px !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1780748008617000005"] .tn-atom {
+    font-size: 11px !important;
+    line-height: 1.55 !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+  #rec2487446043 .tn-elem[data-elem-id="1780748008617000005"] strong {
+    font-size: 12px !important;
+  }
+
+  /* Countdown Section Mobile Fitting */
+  #rec2487446093 {
+    overflow: hidden !important;
+    padding: 10px 0 20px !important;
+    max-width: 100vw !important;
+  }
+  #rec2487446093 .t396__artboard {
+    height: 165px !important;
+    overflow: hidden !important;
+    max-width: 100vw !important;
+  }
+  #rec2487446093 .tn-elem[data-elem-id="1771277026942000001"] {
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    top: 10px !important;
+    text-align: center !important;
+  }
+  #rec2487446093 .tn-elem[data-elem-id="1771277026942000001"] .tn-atom {
+    font-size: 26px !important;
+    text-align: center !important;
+    white-space: normal !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+  }
+  #rec2487446093 .tn-elem[data-elem-id="1771277551711000001"] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    top: 50px !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    padding: 0 4px !important;
+  }
+  #countdownContainer {
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 2px !important;
+    box-sizing: border-box !important;
+  }
+  #countdownContainer .time-block {
+    flex: 1 1 20% !important;
+    max-width: 65px !important;
+    text-align: center !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  #countdownContainer .number-wrap {
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  #countdownContainer .number {
+    font-size: 25px !important;
+    line-height: 1 !important;
+    transform: none !important;
+  }
+  #countdownContainer .label {
+    font-size: 9.5px !important;
+    letter-spacing: 0.04em !important;
+    margin-top: 2px !important;
+  }
+  #countdownContainer .separator {
+    font-size: 22px !important;
+    margin-top: -14px !important;
+    flex: 0 0 6px !important;
+    text-align: center !important;
+  }
+
+  /* Location Section Headers & Card */
+  #rec2487446153 {
+    overflow: hidden !important;
+    padding-top: 15px !important;
+    max-width: 100vw !important;
+  }
+  #rec2487446153 .t396__artboard {
+    overflow: hidden !important;
+    height: auto !important;
+    min-height: 70px !important;
+    max-width: 100vw !important;
+  }
+  #rec2487446153 .tn-elem[data-elem-id="1771277026942000001"] {
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    text-align: center !important;
+    top: 10px !important;
+  }
+  #rec2487446153 .tn-elem[data-elem-id="1771277026942000001"] .tn-atom {
+    font-size: 32px !important;
+    text-align: center !important;
+  }
+  #rec2487446163 {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+  }
+  #rec2487446163 .t396__artboard {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+  }
+  #rec2487446163 .tn-elem[data-elem-id="1710614957366"] div > div {
+    max-width: 90vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Schedule Meta Pills & Map Button */
+  .og-meta-pill {
+    white-space: normal !important;
+    display: inline-block !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+  }
+  .og-venue-map-btn {
+    display: block !important;
+    width: 90% !important;
+    max-width: 320px !important;
+    margin: 18px auto 0 !important;
+    padding: 10px 14px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.05em !important;
+    white-space: normal !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Details & Blessings Cards */
+  .og-details-wrap {
+    padding: 0 10px !important;
+    max-width: 100vw !important;
+  }
+  .og-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .og-detail-card {
+    padding: 20px 14px !important;
+  }
+
+  /* Floating Audio Button */
+  #weiAudioBtn {
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+  #weiAudioBtn svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
 }
