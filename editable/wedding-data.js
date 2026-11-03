@@ -40,7 +40,7 @@ window.WEDDING_DATA = {
   address: {
     residence: "14/100 Moti Mill Compound, Achal Tal, Aligarh - 202001",
     city: "Aligarh, Uttar Pradesh",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Moti+Mill+Compound+Achal+Tal+Aligarh+202001",
+    mapsUrl: "https://www.google.com/search?client=ms-android-samsung-ss&hs=9CbB&sca_esv=83f312d482a6a4fe&sxsrf=AKL5yDj2Zbzp9x2e4fZPH29NgiUgDfywsw%3A1793697512511&kgmid=%2Fg%2F11n1947jjj&q=The%20Radha%20Vann%20Hotel%20%26%20Convention%20Centre&shem=dlvs1%2Cepsd1%2Cltae%2Crimspwouoe&shndl=30&source=sh%2Fx%2Floc%2Funi%2Fm1%2F2&kgs=3a51fe6e9b567c30",
   },
 
   specialRequest: [
@@ -72,6 +72,7 @@ window.WEDDING_DATA = {
     ],
   },
 
+  /* Events ordered: Vivah Sankalp -> Prem Mala -> Pyaar Bhari Vidai (27 Nov) */
   functions: [
     {
       num: 1,
@@ -126,45 +127,45 @@ window.WEDDING_DATA = {
     },
     {
       num: 6,
+      name: "Pyaar Bhari Vidai",
+      date: "27 November 2026",
+      day: "Friday",
+      time: "10:00 AM",
+      venue: "",
+      dressCode: "With blessings, love & memories",
+      badge: "Vidai",
+    },
+    {
+      num: 7,
       name: "Jal Mata Celebration",
-      date: "26 November 2026",
-      day: "Thursday",
+      date: "27 November 2026",
+      day: "Friday",
       time: "8:00 PM onwards",
       venue: "The Radha Van, Agra Road, Aligarh",
       dressCode: "",
       badge: "Celebration",
     },
     {
-      num: 7,
+      num: 8,
       name: "Gala Celebration",
-      date: "26/30 November 2026",
-      day: "",
+      date: "30 November 2026",
+      day: "Monday",
       time: "7:30 PM onwards",
       venue: "Rudraksh Lawn",
       dressCode: "",
       badge: "Gala",
     },
-    {
-      num: 8,
-      name: "Pyaar Bhari Vidai",
-      date: "1 December 2026",
-      day: "Tuesday",
-      time: "10:00 AM",
-      venue: "",
-      dressCode: "With blessings, love & memories",
-      badge: "Vidai",
-    },
   ],
 
   venue: {
-    name: "The Radha Van & Associated Venues",
-    address: "14/100 Moti Mill Compound, Achal Tal, Aligarh - 202001",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Moti+Mill+Compound+Achal+Tal+Aligarh+202001",
+    name: "The Radha Vann Hotel & Convention Centre",
+    address: "Agra Road, Aligarh, Uttar Pradesh &bull; 14/100 Moti Mill Compound, Achal Tal, Aligarh - 202001",
+    mapsUrl: "https://www.google.com/search?client=ms-android-samsung-ss&hs=9CbB&sca_esv=83f312d482a6a4fe&sxsrf=AKL5yDj2Zbzp9x2e4fZPH29NgiUgDfywsw%3A1793697512511&kgmid=%2Fg%2F11n1947jjj&q=The%20Radha%20Vann%20Hotel%20%26%20Convention%20Centre&shem=dlvs1%2Cepsd1%2Cltae%2Crimspwouoe&shndl=30&source=sh%2Fx%2Floc%2Funi%2Fm1%2F2&kgs=3a51fe6e9b567c30",
   },
 
   details: {
     giftPreference: "Your warm presence and heartfelt blessings are our greatest gift.",
-    dressCode: "Pretty in pastels · Glamour Edit · Timeless Traditionals.",
+    dressCode: "Pretty in pastels • Glamour Edit • Timeless Traditionals",
   },
 
   media: {

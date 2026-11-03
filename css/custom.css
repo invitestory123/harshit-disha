@@ -156,7 +156,7 @@ body {
 .og-sched-wrap {
   position: relative;
   width: 100%;
-  max-width: 760px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
@@ -164,37 +164,27 @@ body {
 
 .og-sched-container {
   position: relative;
-  background: #fcf8ee;
-  border: 1px solid rgba(166, 125, 43, 0.22);
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(140, 100, 60, 0.08);
-  padding: 50px 24px 60px;
-  margin: 20px auto 40px;
-}
-
-/* Torn Deckled Paper Edges */
-.og-sched-deckle-top {
-  width: 100%;
-  display: block;
-  margin-bottom: -4px;
-}
-
-.og-sched-deckle-bottom {
-  width: 100%;
-  display: block;
-  margin-top: -4px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 10px 0 30px;
+  margin: 0 auto;
 }
 
 /* Header */
 .og-sched-header {
   text-align: center;
-  margin-bottom: 44px;
+  margin-bottom: 36px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .og-sched-title {
   font-family: 'Imperial Script', cursive !important;
-  font-size: 54px !important;
+  font-size: 52px !important;
   font-weight: 400 !important;
   color: var(--royale-gold) !important;
   margin: 0 !important;
@@ -204,30 +194,33 @@ body {
 }
 
 .og-sched-flourish {
-  height: 24px;
+  height: 22px;
   display: inline-block;
   vertical-align: middle;
-  opacity: 0.75;
-  margin: 0 12px;
+  opacity: 0.8;
+  margin: 0 10px;
 }
 
 /* Vertical Timeline Stem */
 .og-sched-timeline {
   position: relative;
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 
 .og-sched-stem {
   position: absolute;
-  top: 15px;
-  bottom: 25px;
+  top: 30px;
+  bottom: 30px;
   left: 50%;
   width: 1.5px;
   background: linear-gradient(180deg, 
     rgba(166, 125, 43, 0.2) 0%, 
-    rgba(166, 125, 43, 0.5) 15%, 
-    rgba(166, 125, 43, 0.5) 85%, 
+    rgba(166, 125, 43, 0.55) 8%, 
+    rgba(166, 125, 43, 0.55) 92%, 
     rgba(166, 125, 43, 0.2) 100%);
   transform: translateX(-50%);
   z-index: 1;
@@ -238,9 +231,10 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 80px;
-  margin-bottom: 24px;
+  min-height: 78px;
+  margin-bottom: 22px;
   z-index: 2;
+  transition: all 0.3s ease;
 }
 
 .og-sched-row:last-child {
@@ -249,9 +243,10 @@ body {
 
 /* Left Column: Time & Date */
 .og-col-time {
-  flex: 1 1 45%;
+  flex: 1 1 50%;
+  width: 50%;
   text-align: right;
-  padding-right: 28px;
+  padding-right: 22px;
   box-sizing: border-box;
 }
 
@@ -264,21 +259,24 @@ body {
   color: var(--royale-gold-dark);
   text-transform: uppercase;
   margin-bottom: 3px;
+  transition: color 0.3s ease;
 }
 
 .og-time-val {
   display: block;
   font-family: 'Cinzel', serif;
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 600;
   color: var(--royale-gold);
   line-height: 1.1;
   letter-spacing: 0.02em;
+  transition: all 0.3s ease;
 }
 
-/* Center Node / Rose */
+/* Center Node */
 .og-col-node {
-  flex: 0 0 32px;
+  flex: 0 0 0px;
+  width: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -287,49 +285,65 @@ body {
 }
 
 .og-node-diamond {
-  width: 10px;
-  height: 10px;
-  background-color: var(--royale-parchment-card);
-  border: 2px solid var(--royale-gold);
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
+  background-color: #f9f0e0;
+  border: 1.5px solid var(--royale-gold);
   transform: rotate(45deg);
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 0 3px #f9f0e0;
 }
 
-.og-node-rose {
-  width: 36px;
-  height: 36px;
+/* Floating Scroll Rose */
+.og-floating-rose {
+  position: absolute;
+  left: 50%;
+  top: 35px;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
   object-fit: contain;
-  display: block;
-  filter: drop-shadow(0 2px 6px rgba(166, 125, 43, 0.35));
-  animation: ogRoseFloat 3.5s ease-in-out infinite alternate;
+  z-index: 10;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(166, 125, 43, 0.4));
+  will-change: top;
+  transition: top 0.06s linear;
 }
 
-@keyframes ogRoseFloat {
-  0%   { transform: scale(1) translateY(0); }
-  100% { transform: scale(1.08) translateY(-2px); }
+/* Active row styling when rose is at or near the node */
+.og-sched-row.og-row-active .og-node-diamond {
+  background-color: var(--royale-gold);
+  transform: rotate(45deg) scale(1.3);
+  box-shadow: 0 0 8px rgba(166, 125, 43, 0.6), 0 0 0 4px #f9f0e0;
+}
+
+.og-sched-row.og-row-active .og-event-title {
+  color: #8a1f2d !important;
+}
+
+.og-sched-row.og-row-active .og-time-val {
+  color: var(--royale-gold-dark);
 }
 
 /* Right Column: Ceremony Details */
 .og-col-info {
-  flex: 1 1 45%;
+  flex: 1 1 50%;
+  width: 50%;
   text-align: left;
-  padding-left: 28px;
+  padding-left: 22px;
   box-sizing: border-box;
 }
 
 .og-event-title {
   font-family: 'Cinzel', serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--royale-gold-dark);
   margin: 0 0 4px 0;
   letter-spacing: 0.03em;
   line-height: 1.25;
-}
-
-.og-row-highlight .og-event-title {
-  color: #8a1f2d;
-  font-size: 20px;
+  transition: color 0.3s ease;
 }
 
 .og-event-meta {
@@ -341,48 +355,124 @@ body {
 
 .og-meta-pill {
   display: inline-block;
+  margin-top: 4px;
+  padding: 2px 9px;
   background: rgba(166, 125, 43, 0.08);
-  border: 1px solid rgba(166, 125, 43, 0.2);
+  border: 1px solid rgba(166, 125, 43, 0.25);
   border-radius: 12px;
-  padding: 1px 8px;
-  font-size: 11px;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.06em;
   color: var(--royale-gold-dark);
-  margin-top: 3px;
   font-style: italic;
 }
 
-/* Mobile Responsiveness for Timeline */
-@media screen and (max-width: 600px) {
-  .og-sched-container {
-    padding: 36px 14px 44px;
+/* Venue Map Button */
+.og-venue-map-btn {
+  display: inline-block;
+  max-width: 94%;
+  padding: 11px 24px;
+  background: #5a0f1b;
+  color: #fdfaf3 !important;
+  text-decoration: none;
+  border-radius: 24px;
+  font-family: 'Cinzel', serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(90, 15, 27, 0.25);
+  transition: all 0.25s ease;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.35;
+  box-sizing: border-box;
+}
+
+.og-venue-map-btn:hover {
+  background: #751424;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(90, 15, 27, 0.35);
+}
+
+@media screen and (max-width: 640px) {
+  .og-sched-wrap {
+    padding: 0 10px !important;
+  }
+  .og-sched-header {
+    margin-bottom: 24px !important;
   }
   .og-sched-title {
-    font-size: 42px !important;
+    font-size: 38px !important;
   }
   .og-sched-flourish {
-    height: 18px;
-    margin: 0 6px;
+    height: 16px !important;
+    margin: 0 5px !important;
+  }
+  .og-sched-timeline {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .og-sched-stem {
+    left: 43% !important;
+  }
+  .og-floating-rose {
+    left: 43% !important;
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .og-sched-row {
+    min-height: 66px !important;
+    margin-bottom: 18px !important;
   }
   .og-col-time {
-    padding-right: 14px;
+    flex: 0 0 43% !important;
+    width: 43% !important;
+    padding-right: 10px !important;
+    box-sizing: border-box !important;
+  }
+  .og-col-node {
+    flex: 0 0 0px !important;
+    width: 0 !important;
+    position: relative !important;
+  }
+  .og-node-diamond {
+    width: 7.5px !important;
+    height: 7.5px !important;
+    margin-left: -3.75px !important;
   }
   .og-col-info {
-    padding-left: 14px;
-  }
-  .og-time-val {
-    font-size: 18px;
-  }
-  .og-date-pill {
-    font-size: 9px;
+    flex: 0 0 57% !important;
+    width: 57% !important;
+    padding-left: 10px !important;
+    box-sizing: border-box !important;
   }
   .og-event-title {
-    font-size: 15px;
-  }
-  .og-row-highlight .og-event-title {
-    font-size: 16px;
+    font-size: 13.5px !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.25 !important;
+    margin: 0 0 3px 0 !important;
+    word-break: normal !important;
   }
   .og-event-meta {
-    font-size: 12px;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+  .og-meta-pill {
+    font-size: 9px !important;
+    padding: 2px 7px !important;
+    margin-top: 3px !important;
+  }
+  .og-time-val {
+    font-size: 17.5px !important;
+  }
+  .og-date-pill {
+    font-size: 8.5px !important;
+  }
+  .og-venue-map-btn {
+    font-size: 10px !important;
+    padding: 9px 15px !important;
+    letter-spacing: 0.06em !important;
   }
 }
 
